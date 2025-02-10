@@ -1,7 +1,6 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation.utils import GenerationConfig
 from transformers import LlamaForCausalLM
-LlamaForCausalLM.generate
 import torch
 from GPU_get import *
 dividing_line_len = 50
