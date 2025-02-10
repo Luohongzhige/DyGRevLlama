@@ -1,33 +1,34 @@
 {
-    "data_path":"cloth/Clothing_Shoes_and_Jewelry_5.json",
-    "need_item":["reviewerID","asin","reviewTime","reviewText"],
-    "time_format":"%m %d, %Y",
-    "end_time":"10 01, 2018",
+    "data_path":"/home/qiaoy/data/yelp/yelp_academic_dataset_review.json",
+    "need_item":["user_id","business_id","date","text"],
+    "time_format":"%Y-%m-%d %H:%M:%S",
+    "end_time":"2018-01-31 20:00:00",
+    "total_data_size":4791902,
     "iteration":10,
-    "k_core":25,
+    "k_core":43,
     "history_len":5,
     "skip":{
-        "part1":false,
-        "part2":false,
-        "part3":false,
-        "part4":false,
+        "part1":true,
+        "part2":true,
+        "part3":true,
+        "part4":true,
         "part5":false
     },
     "save":{
         "part1":true,
         "part3":true,
-        "part4":true,
-        "part5":true,
-        "all":true
+        "part4":false,
+        "part5":false,
+        "all":false
     },
     "save_path":{
-        "pretreatment":"cloth/cloth_part1.json",
-        "part3":"cloth/cloth_part3.json",
-        "result":"cloth/result.txt",
-        "memory":"cloth/memory.npy",
+        "pretreatment":"yelp/yelp_part1.json",
+        "part3":"yelp/yelp_part3.json",
+        "result":"yelp/result_mymodel.txt",
+        "memory":"yelp/memory.npy",
         "tgn":{
-            "decoder":"cloth/cloth_tgn_decoder",
-            "tgn":"cloth/cloth_tgn_tgn"
+            "decoder":"yelp/yelp_tgn_decoder",
+            "tgn":"yelp/yelp_tgn_tgn"
         }
     },
     "llm":"llama",
@@ -64,7 +65,7 @@
     "bind_key":{
         "group1":{
             "key":["name", "tgn.data"],
-            "value":"cloth"
+            "value":"yelp"
         },
         "group2":{
             "key":["embedding_size", "tgn.node_dim", "tgn.time_dim", "tgn.message_dim", "tgn.memory_dim", "tgn.shape"],
@@ -76,19 +77,19 @@
         },
         "group4":{
             "key":["save_path.csv", "tgn.save_path.csv"],
-            "value":"cloth/data.csv"
+            "value":"yelp/data.csv"
         },
         "group5":{
             "key":["save_path.embedding", "tgn.save_path.embedding"],
-            "value":"cloth/cloth_part2.npy"
+            "value":"yelp/yelp_part2.npy"
         },
         "group6":{
             "key":["save_path.tgn.tgn", "tgn.save_path.tgn"],
-            "value":"cloth/cloth_tgn_tgn.pth"
+            "value":"yelp/yelp_tgn_tgn.pth"
         },
         "group7":{
             "key":["save_path.tgn.decoder", "tgn.save_path.decoder"],
-            "value":"cloth/cloth_tgn_decoder.pth"
+            "value":"yelp/yelp_tgn_decoder.pth"
         }
     },
     "add_key":{

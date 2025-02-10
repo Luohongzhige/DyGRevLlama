@@ -2,23 +2,24 @@
     "data_path":"cloth/Clothing_Shoes_and_Jewelry_5.json",
     "need_item":["reviewerID","asin","reviewTime","reviewText"],
     "time_format":"%m %d, %Y",
-    "end_time":"10 01, 2018",
+    "end_time":"10 01, 2011",
+    "total_data_size":11285464,
     "iteration":10,
-    "k_core":25,
+    "k_core":43,
     "history_len":5,
     "skip":{
-        "part1":false,
-        "part2":false,
-        "part3":false,
-        "part4":false,
+        "part1":true,
+        "part2":true,
+        "part3":true,
+        "part4":true,
         "part5":false
     },
     "save":{
         "part1":true,
         "part3":true,
-        "part4":true,
-        "part5":true,
-        "all":true
+        "part4":false,
+        "part5":false,
+        "all":false
     },
     "save_path":{
         "pretreatment":"cloth/cloth_part1.json",
