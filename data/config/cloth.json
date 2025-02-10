@@ -1,0 +1,108 @@
+{
+    "data_path":"cloth/Clothing_Shoes_and_Jewelry_5.json",
+    "need_item":["reviewerID","asin","reviewTime","reviewText"],
+    "time_format":"%m %d, %Y",
+    "end_time":"10 01, 2018",
+    "iteration":10,
+    "k_core":25,
+    "history_len":5,
+    "skip":{
+        "part1":true,
+        "part2":true,
+        "part3":true,
+        "part4":false,
+        "part5":true
+    },
+    "save":{
+        "part1":true,
+        "part3":true,
+        "part4":true,
+        "part5":true,
+        "all":true
+    },
+    "save_path":{
+        "pretreatment":"cloth/cloth_part1.json",
+        "part3":"cloth/cloth_part3.json",
+        "result":"cloth/result.txt",
+        "memory":"cloth/memory.npy",
+        "tgn":{
+            "decoder":"cloth/cloth_tgn_decoder",
+            "tgn":"cloth/cloth_tgn_tgn"
+        }
+    },
+    "llm":"llama",
+    "tgn":{
+        "ablation":{
+            "source":false,
+            "dist":false
+        },
+        "bs":100,
+        "n_head":2,
+        "n_epoch":50,
+        "n_layer":1,
+        "lr":0.001,
+        "patience":5,
+        "n_runs":1,
+        "drop_out":0.1,
+        "gpu":0,
+        "backprop_every":1,
+        "use_memory":true,
+        "embedding_module":"graph_attention",
+        "message_function":"mlp",
+        "aggregator":"last",
+        "memory_update_at_end":false,
+        "different_new_nodes":false,
+        "uniform":false,
+        "randomize_features":false,
+        "use_destination_embedding_in_message":true,
+        "use_source_embedding_in_message":true,
+        "n_neg":1,
+        "use_validation":true,
+        "new_node":false
+    },
+    "split":6727,
+    "bind_key":{
+        "group1":{
+            "key":["name", "tgn.data"],
+            "value":"cloth"
+        },
+        "group2":{
+            "key":["embedding_size", "tgn.node_dim", "tgn.time_dim", "tgn.message_dim", "tgn.memory_dim", "tgn.shape"],
+            "value":4096
+        },
+        "group3":{
+            "key":["tgn.n_degree", "tgn.seq_len"],
+            "value":10
+        },
+        "group4":{
+            "key":["save_path.csv", "tgn.save_path.csv"],
+            "value":"cloth/data.csv"
+        },
+        "group5":{
+            "key":["save_path.embedding", "tgn.save_path.embedding"],
+            "value":"cloth/cloth_part2.npy"
+        },
+        "group6":{
+            "key":["save_path.tgn.tgn", "tgn.save_path.tgn"],
+            "value":"cloth/cloth_tgn_tgn.pth"
+        },
+        "group7":{
+            "key":["save_path.tgn.decoder", "tgn.save_path.decoder"],
+            "value":"cloth/cloth_tgn_decoder.pth"
+        }
+    },
+    "add_key":{
+        "part1":{
+            "group1":{
+                "key":["edge_num", "tgn.edge_num"],
+                "value":"edge_num"
+            }
+        },
+        "part2":{
+            "group1":{
+                "key":["tgn.node_num"],
+                "value":"node_num"
+            }
+        }
+    }
+}
